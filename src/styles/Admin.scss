@@ -1,0 +1,60 @@
+.arrow {
+    padding-top: 40px;
+    button {
+        background: transparent;
+        font-size: 24px;
+        color: #181818;
+    }
+}
+
+#admin {
+  .admin {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 50px;
+    min-height: 70vh;
+
+    &-logo {
+    }
+    &-inputs {
+      display: flex;
+      flex-direction: column;
+      width: 420px;
+      input {
+        height: 45px;
+        margin: 15px 0px;
+        padding-left: 20px;
+      }
+      &_password {
+        width: 397px;
+        position: relative;
+        input {
+          width: 100%;
+          height: 45px;
+          margin: 15px 0px;
+          padding-left: 20px;
+        }
+        .eye {
+          position: absolute;
+          right: 5px;
+          top: 27px;
+          background: transparent;
+          color: gray;
+          width: 10px;
+          height: 10px;
+        }
+      }
+      button {
+        width: 100%;
+        height: 45px;
+        background: rgb(200, 36, 27);
+        color: rgb(255, 255, 255);
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 29px;
+      }
+    }
+  }
+}

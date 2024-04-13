@@ -12,7 +12,7 @@ import icon3 from "../../images/icon3.svg";
 import icon4 from "../../images/icon4.svg";
 //@ts-ignore
 import icon5 from "../../images/icon5.svg";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Navbar: React.FC = () => {
   return (
@@ -43,7 +43,9 @@ const Navbar: React.FC = () => {
           </div>
 
           <div className="navbar-admin">
+            <Link to='login'>
             <img width={17} src={icon5} alt="" />
+            </Link>
           </div>
         </div>
       </div>
