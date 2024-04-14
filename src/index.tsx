@@ -1,24 +1,28 @@
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import Admin from './pages/Admin';
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import Admin from "./pages/Admin";
+import { Provider } from "react-redux";
+import { setupStore } from "./app/store";
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+  document.getElementById("root") as HTMLElement
 );
 
 const router = createBrowserRouter([
   {
-    path:'/',
-    element:<App/>
+    path: "/",
+    element: <App />,
   },
   {
-    path:'/login',
-    element:<Admin/>
-  }
-])
+    path: "/login",
+    element: <Admin />,
+  },
+]);
+const store = setupStore()
 root.render(
-   <RouterProvider router={router}/>
+  <Provider store={store}>
+    <RouterProvider router={router} />
+  </Provider>
 );
-
