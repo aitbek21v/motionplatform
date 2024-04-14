@@ -6,14 +6,25 @@ import { FaRegEyeSlash } from "react-icons/fa";
 import { IoEyeOutline } from "react-icons/io5";
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
+import { useAppDispatch, useAppSelector } from "../../hooks/redux";
+import { setTypePassword } from "../../features/slices/isPasswordSlice";
 const Admin: React.FC = () => {
-  const [isPassword, setIsPassword] = useState(false);
-  const navigate = useNavigate()
+  const { isDark } = useAppSelector((s) => s.dark);
+  const { isPassword } = useAppSelector((s) => s.password);
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+  const isDarkColor = isDark ? "white" : "black";
+
   return (
-    <>
+    <div
+      style={{
+        background: isDark ? "#181818" : "#fff",
+        minHeight: "100vh",
+      }}
+    >
       <div className="container">
         <div className="arrow">
-          <button onClick={() => navigate(-1)}>
+          <button style={{ color: isDarkColor }} onClick={() => navigate(-1)}>
             <FaArrowLeftLong />
           </button>
         </div>
@@ -23,28 +34,37 @@ const Admin: React.FC = () => {
               <img width={225} src={logo} alt="" />
             </div>
             <div className="admin-inputs">
-              <input type="text" placeholder="Username" />
+              <input
+                style={{
+                  background: isDark ? "gray" : "none",
+                  color: isDark ? "white" : "black",
+                }}
+                type="text"
+                placeholder="Username"
+              />
               <div className="admin-inputs_password">
                 <input
+                  style={{ background: isDark ? "gray" : "none" }}
                   type={isPassword ? "text" : "password"}
                   placeholder="Password"
                 />
-                {isPassword ? (
-                  <button onClick={() => setIsPassword(false)} className="eye">
-                    <IoEyeOutline />
-                  </button>
-                ) : (
-                  <button onClick={() => setIsPassword(true)} className="eye">
-                    <FaRegEyeSlash />
-                  </button>
-                )}
+
+                <button
+                  style={{
+                    color: isDark ? "white" : "gray",
+                  }}
+                  onClick={() => dispatch(setTypePassword(!isPassword))}
+                  className="eye"
+                >
+                  {isPassword ? <IoEyeOutline /> : <FaRegEyeSlash />}
+                </button>
               </div>
               <button>Log in</button>
             </div>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

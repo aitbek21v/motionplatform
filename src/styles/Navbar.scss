@@ -24,8 +24,9 @@
         align-items: center;
         gap: 11px;
         // justify-content: space-between;
-        img {
-          cursor: pointer;
+        button {
+          background: none;
+          font-size: 18px;
         }
         a {
           color: rgb(34, 34, 34);
@@ -41,6 +42,14 @@
       }
     }
     &-admin {
+      width: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      button {
+        background: none;
+        font-size: 22px;
+      }
       img {
         cursor: pointer;
       }

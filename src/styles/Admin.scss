@@ -16,8 +16,7 @@
     gap: 50px;
     min-height: 70vh;
 
-    &-logo {
-    }
+ 
     &-inputs {
       display: flex;
       flex-direction: column;
@@ -41,7 +40,6 @@
           right: 5px;
           top: 27px;
           background: transparent;
-          color: gray;
           width: 10px;
           height: 10px;
         }
